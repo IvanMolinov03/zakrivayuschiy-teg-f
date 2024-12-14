@@ -11,6 +11,120 @@
 */
 
 .page {
+  font-family: var(--main-font), sans-serif;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image: var(--page-background);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--accent-font), sans-serif;
+  text-transform: uppercase;
+  padding: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem) clamp(0.875rem, -1.4687rem + 10vw, 7.5313rem);
+}
+
+.header-logo {
+  text-align: center;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header-title {
+  text-align: center;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #000;
+  margin-bottom: 50px;
+}
+
+.card__title {
+  font-size: 18px;
+  line-height: 21.78px;
+  margin: 5px 10px;
+}
+
+.card__image {
+  position: relative;
+}
+
+.card__image img {
+  width: 100%;
+  outline: 2px solid #000;
+}
+
+.card__image span {
+  position: absolute;
+  font-family: var(--accent-font), sans-serif;
+  font-size: 14px;
+  top: 25px;
+  right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
+  text-shadow: 0 0 2px #fff;
+  mix-blend-mode: hard-light;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) {
+  .card__image span {
+    text-shadow: none;
+    -webkit-text-stroke: 1px #fff;
+    opacity: 50%;
+  }
+}
+
+.card__content {
+  display: flex;
+  font-size: 18px;
+  line-height: 21px;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 25px;
+  gap: 25px;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 18px;
+}
+
+.card__buttons button {
+  background-color: transparent;
+}
+
+.card__icon-button {
+  border: none;
+  width: 27px;
+  height: 24px;
+}
+
+.card__like-button {
+  font-family: var(--accent-font), sans-serif;
+  font-size: 14px;
+  line-height: 12.6px;
+  width: 130px;
+  height: 38px;
+  border: 2px solid #000;
 }
