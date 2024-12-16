@@ -174,13 +174,24 @@
       </section>
     </main>
     <footer class="footer">
-      <button class="button-save"  type="button">
-        <svg class="floppy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+      <button class="button-save" type="button" onclick="window.dialog.showModal()">
+        <svg class="floppy-footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
           <use href="./svg/floppy.svg#save-icon"></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
     </footer>
+    <dialog class="dialog" id="dialog" open>
+      <div class="dialog__content">
+        <svg class="floppy-dialog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
+          <use href="./svg/floppy.svg#save-icon"></use>
+        </svg>
+        <span class="dialog_description">Вставьте дискету, чтобы продолжить</span>
+      </div>
+      <button class="dialog__button" type="button" onclick="window.dialog.close()">
+        <span class="button__text">ок</span>
+      </button>
+    </dialog>
     <script src="./scripts/like.js"></script>
   </body>
 </html>
