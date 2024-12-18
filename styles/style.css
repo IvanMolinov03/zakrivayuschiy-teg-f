@@ -85,7 +85,6 @@
 .card__image {
   position: relative;
   aspect-ratio: 1 / 1;
-  overflow: hidden;
 }
 
 .card__image img {
@@ -138,8 +137,10 @@
 
 .card__icon-button {
   display: flex;
-  border: none;
   padding: 0;
+  border: 2px solid transparent;
+  height: 38px;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -151,8 +152,8 @@
 }
 
 .like-icon:hover .core {
-    fill: var(--heart-contour-color);
-    transition: fill 0.3s;
+  fill: var(--heart-contour-color);
+  transition: fill 0.3s;
 }
 
 .like-icon:hover .main-body {
@@ -284,6 +285,7 @@ button .button__text {
 
 .floppy-footer {
   width: clamp(21px, 30.4648px + -0.6573vw, 28px);
+  flex-shrink: 0;
   color: #fff;
   mix-blend-mode: difference;
 }
@@ -295,9 +297,10 @@ button .button__text {
 }
 
 .dialog {
-  padding: 30px 40px;
+  padding: 30px clamp(30px, 43.5211px + -0.939vw, 40px);
   inline-size: clamp(341px, 336.7746px + 1.1268vw, 353px);
-  border: 2px solid #000;
+  border: none;
+  outline: 2px solid #000;
 }
 
 .dialog[open]::backdrop {
@@ -319,7 +322,8 @@ button .button__text {
 }
 
 .floppy-dialog {
-   width: 100px;
+   width: 39px;
+   flex-shrink: 0;
 }
 
 .dialog__button {
