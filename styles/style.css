@@ -57,14 +57,14 @@
 
 .header-logo {
   text-align: center;
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-size: clamp(49px, 44.4286px + 1.4286vw, 65px);
+  line-height: clamp(49px, 44.4286px + 1.4286vw, 65px);
 }
 
 .header-title {
   text-align: center;
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-size: clamp(14px, 11.4286px + 0.8036vw, 23px);
+  line-height: clamp(14px, 11.4286px + 0.8036vw, 23px);
 }
 
 .card {
@@ -112,6 +112,38 @@
     -webkit-text-stroke: 1px #fff;
     opacity: 50%;
   }
+}
+
+.default-image {
+  filter: grayscale(50%) sepia(30%);
+}
+
+.moto {
+  filter: brightness(80%) saturate(120%);
+}
+
+.raspberry {
+  filter: contrast(120%);
+}
+
+.workplace {
+  filter: brightness(90%);
+}
+
+.winter {
+  filter: contrast(110%);
+}
+
+.street {
+  filter: hue-rotate(-130deg);
+}
+
+.glass {
+  filter: grayscale(50%);
+}
+
+.santa {
+  filter: invert(0.1);
 }
 
 .card__content {
