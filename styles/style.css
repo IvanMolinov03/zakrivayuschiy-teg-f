@@ -260,6 +260,7 @@
   color: #fff;
   font-size: 14px;
   line-height: 12.6px;
+  font-family: var(--accent-font), fantasy;
 }
 
 .card__like-button {
@@ -286,12 +287,6 @@
   flex-shrink: 0;
   color: #fff;
   mix-blend-mode: difference;
-}
-
-.button__text {
-  font-family: var(--accent-font), fantasy;
-  font-size: 14px;
-  line-height: 12.6px;
 }
 
 .dialog {
