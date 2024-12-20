@@ -9,26 +9,10 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-@keyframes heart-scale {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.25);
-  }
-}
-
-@keyframes sparks-opacity {
-  to {
-    opacity: 100%;
-  }
-}
-
 
 .page {
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' 400 700;
+  font-variation-settings: 'wght' 400;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   background-image: var(--page-background);
@@ -50,7 +34,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   text-transform: uppercase;
   padding: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem) clamp(0.875rem, -1.4687rem + 10vw, 7.5313rem);
 }
@@ -78,6 +62,7 @@
 
 .card__title {
   font-size: 18px;
+  font-variation-settings: 'wght' var(--font-weight-title);
   line-height: 21.78px;
   margin: 5px 10px;
 }
@@ -98,51 +83,47 @@
 
 .card__image span {
   position: absolute;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   top: 25px;
   right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
   text-shadow: 0 0 2px #fff;
   mix-blend-mode: hard-light;
+  opacity: 50%;
 }
 
 @supports (-webkit-text-stroke: 1px #fff) {
   .card__image span {
     text-shadow: none;
     -webkit-text-stroke: 1px #fff;
-    opacity: 50%;
   }
 }
 
-.default-image {
-  filter: grayscale(50%) sepia(30%);
+.filter-sepia {
+  filter: sepia(30%) grayscale(50%);
 }
 
-.moto {
-  filter: brightness(80%) saturate(120%);
+.filter-saturate {
+  filter: saturate(120%) brightness(80%);
 }
 
-.raspberry {
-  filter: contrast(120%);
-}
-
-.workplace {
+.filter-brightness {
   filter: brightness(90%);
 }
 
-.winter {
+.filter-contrast {
   filter: contrast(110%);
 }
 
-.street {
+.filter-hue-rotate {
   filter: hue-rotate(-130deg);
 }
 
-.glass {
+.filter-grayscale {
   filter: grayscale(50%);
 }
 
-.santa {
+.filter-invert {
   filter: invert(0.1);
 }
 
@@ -150,14 +131,11 @@
   display: flex;
   font-size: 18px;
   line-height: 21px;
+  font-variation-settings: 'wght' var(--font-weight-main);
   flex-direction: column;
   justify-content: space-around;
   margin: 25px;
   gap: 25px;
-}
-
-.memories {
-  margin-top: 2px;
 }
 
 .card__buttons {
@@ -185,27 +163,37 @@
 
 .like-icon:hover .core {
   fill: var(--heart-contour-color);
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--heart-contour-color);
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
-.like-icon:active .core,
+.like-icon:active .core {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s linear;
+}
+
 .like-icon:active .main-body {
   fill: var(--heart-fill-color);
+  transition: fill 0.3s linear 0.05s;
 }
 
-.like-icon.is-liked .core,
+.like-icon.is-liked .core {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s linear;
+}
+
 .like-icon.is-liked .main-body {
   fill: var(--heart-fill-color);
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--heart-fill-color);
-  transition: fill 0.3s 0.06s;
+  transition: fill 0.3s linear 0.06s;
 }
 
 .like-icon.is-liked .heart {
@@ -218,85 +206,42 @@
 }
 
 .contour {
-  transition: fill 0.3s linear;
+  transition: fill 0.1s linear;
 }
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
 }
 
 .core {
   fill: transparent;
-  transition: fill 0.3s ease 0.03s;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .sparks {
   opacity: 0;
 }
 
-.card__like-button {
+.button {
   position: relative;
-  font-family: var(--accent-font), sans-serif;
-  font-size: 14px;
-  line-height: 12.6px;
-  width: 130px;
-  height: 38px;
+  font-family: var(--accent-font), fantasy;
   border: 2px solid #000;
   transition: box-shadow 0.3s;
   overflow: hidden;
-}
-
-.card__like-button:focus {
-  outline: none;
-  box-shadow: 2px 2px var(--accent-color);
-}
-
-.card__like-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: #000;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.card__like-button:hover::before {
-  transform: translateX(0);
-}
-
-button .button__text {
-  position: relative;
-  mix-blend-mode: difference;
-  color: #fff;
-}
-
-.footer {
-  width: clamp(306px, 295.7887px + 2.723vw, 335px);
-  margin: 0 auto 100px;
-}
-
-.button-save {
-  position: relative;
-  width: 100%;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 15px 21px 15px 19px;
-  border: 2px solid #000;
-  white-space: nowrap;
-  background-color: #fff;
-  overflow: hidden;
 }
 
-.button-save:focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px var(--accent-color);
 }
 
-.button-save::before {
+.button::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -305,8 +250,29 @@ button .button__text {
   transition: transform 0.5s ease-in-out;
 }
 
-.button-save:hover::before {
+.button:hover::before {
   transform: translateX(0);
+}
+
+.button__text {
+  position: relative;
+  mix-blend-mode: difference;
+  color: #fff;
+  font-size: 14px;
+  line-height: 12.6px;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+}
+
+.button-save {
+  width: clamp(306px, 295.7887px + 2.723vw, 335px);
+  margin: 0 auto 100px;
+  gap: 8px;
+  padding: 15px 21px 15px 19px;
+  white-space: nowrap;
 }
 
 @media (width >= 1024px) {
@@ -315,7 +281,7 @@ button .button__text {
   }
 }
 
-.floppy-footer {
+.floppy-save {
   width: clamp(21px, 30.4648px + -0.6573vw, 28px);
   flex-shrink: 0;
   color: #fff;
@@ -323,7 +289,7 @@ button .button__text {
 }
 
 .button__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 12.6px;
 }
@@ -347,7 +313,7 @@ button .button__text {
 }
 
 .dialog_description {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 21px;
   text-transform: uppercase;
@@ -362,5 +328,4 @@ button .button__text {
   text-transform: uppercase;
   width: 100%;
   height: 38px;
-  border: 2px solid #000;
 }
